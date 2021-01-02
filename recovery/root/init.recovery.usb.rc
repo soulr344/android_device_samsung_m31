@@ -1,0 +1,18 @@
+on property:sys.usb.config=adb && property:sys.usb.ffs.ready=1 && property:sys.usb.configfs=1
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/kernel/config/usb_gadget/g1/idVendor 0x04E8
+    write /sys/kernel/config/usb_gadget/g1/idProduct 0x6860
+    write /sys/class/android_usb/android0/functions adb
+    write /sys/kernel/config/usb_gadget/g1/UDC "13200000.dwc3"
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.ffs.ready=1 && property:sys.usb.config=mtp,adb && property:sys.usb.configfs=1
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/kernel/config/usb_gadget/g1/idVendor 0x04E8
+    write /sys/kernel/config/usb_gadget/g1/idProduct 0x685D
+    write /sys/class/android_usb/android0/functions mtp,adb
+    write /sys/kernel/config/usb_gadget/g1/UDC "13200000.dwc3"
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ${sys.usb.config}
+
