@@ -14,4 +14,4 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/omni_m31nsxx.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/omni_m31.mk
